@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="pbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="50%" stop-color="#f1f5f9"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="48%" r="45%">
+      <stop offset="0%" stop-color="#ea580c" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#ea580c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" rx="28" fill="url(#pbg)"/>
+  <circle cx="400" cy="285" r="250" fill="url(#glow)"/>
+  <!-- Top Badges -->
+  <rect x="32" y="28" width="210" height="36" rx="18" fill="#065f46"/>
+  <text x="137" y="51" text-anchor="middle" fill="#ffffff" font-family="monospace" font-size="13" font-weight="700">SKU: FF-GOLD-OIL-15L</text>
+  <rect x="578" y="28" width="190" height="36" rx="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="673" y="51" text-anchor="middle" fill="#0f172a" font-family="monospace" font-size="13" font-weight="700">HSN 1512 • VERIFIED</text>
+  <!-- Studio Shadow -->
+  <ellipse cx="400" cy="462" rx="195" ry="24" fill="#0f172a" fill-opacity="0.12"/>
+  <!-- Main Product Studio Graphic -->
+  <g transform="translate(220, 95)">
+    
+<rect x="70" y="28" width="220" height="315" rx="20" fill="#f59e0b" stroke="#b45309" stroke-width="5"/>
+<rect x="135" y="8" width="90" height="22" rx="8" fill="#fef08a" stroke="#b45309" stroke-width="3"/>
+<rect x="92" y="68" width="176" height="230" rx="16" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+<text x="180" y="112" text-anchor="middle" fill="#065f46" font-family="sans-serif" font-size="22" font-weight="900">SUNGOLD PURE</text>
+<text x="180" y="138" text-anchor="middle" fill="#b45309" font-family="sans-serif" font-size="13" font-weight="800">REFINED SUNFLOWER OIL</text>
+<circle cx="180" cy="196" r="38" fill="#fde047" stroke="#f59e0b" stroke-width="4"/>
+<text x="180" y="202" text-anchor="middle" fill="#78350f" font-family="monospace" font-size="15" font-weight="900">GRADE A+</text>
+<rect x="110" y="252" width="140" height="32" rx="8" fill="#065f46"/>
+<text x="180" y="273" text-anchor="middle" fill="#ffffff" font-family="monospace" font-size="13" font-weight="800">15 LITRE TIN</text>
+
+  </g>
+  <!-- Bottom Specification Strip -->
+  <rect x="32" y="498" width="736" height="72" rx="16" fill="#0f172a"/>
+  <text x="56" y="529" fill="#ffffff" font-family="Inter, sans-serif" font-size="17" font-weight="800">SunGold Pure HoReCa Refined Sunflower Oil (15L Commercial Tin)</text>
+  <text x="56" y="553" fill="#93c5fd" font-family="monospace" font-size="13" font-weight="600">Vitamin A &amp; D Fortified  •  High Smoke Point 232°C  •  FSSAI Commercial Grade</text>
+  <rect x="612" y="516" width="136" height="36" rx="10" fill="#ea580c"/>
+  <text x="680" y="539" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="800">STUDIO VIEW 01</text>
+</svg>

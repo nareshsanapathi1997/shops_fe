@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="600" height="360">
+  <defs>
+    <linearGradient id="cbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#022c22"/>
+      <stop offset="100%" stop-color="#065f46"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" rx="24" fill="url(#cbg)"/>
+  <circle cx="480" cy="180" r="140" fill="#fbbf24" fill-opacity="0.16"/>
+  <g transform="translate(360, 65)"><rect x="25" y="15" width="130" height="180" rx="18" fill="#d97706" stroke="#fde68a" stroke-width="3"/><text x="90" y="105" text-anchor="middle" fill="#fffbeb" font-family="serif" font-size="22" font-weight="900">25 KG</text><text x="90" y="135" text-anchor="middle" fill="#fef3c7" font-family="monospace" font-size="13" font-weight="700">1121 BASMATI</text></g>
+  <rect x="36" y="36" width="150" height="32" rx="16" fill="#0f172a" fill-opacity="0.65" stroke="#fbbf24" stroke-opacity="0.5"/>
+  <text x="111" y="57" text-anchor="middle" fill="#fbbf24" font-family="monospace" font-size="12" font-weight="700">HSN 1006 • 5% GST</text>
+  <text x="36" y="256" fill="#ffffff" font-family="Inter, sans-serif" font-size="28" font-weight="900">Grains &amp; Staples</text>
+  <text x="36" y="288" fill="#cbd5e1" font-family="Inter, sans-serif" font-size="15" font-weight="600">Aged 1121 Steam Basmati &amp; Pulses (25kg/50kg)</text>
+  <text x="36" y="322" fill="#fbbf24" font-family="monospace" font-size="13" font-weight="700">VIEW WHOLESALE SLABS →</text>
+</svg>

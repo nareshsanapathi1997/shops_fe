@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540">
+  <defs>
+    <linearGradient id="wbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="url(#wbg)"/>
+  <!-- Warehouse Roof Trusses -->
+  <path d="M40 120 L480 40 L920 120" fill="none" stroke="#38bdf8" stroke-width="4" stroke-opacity="0.5"/>
+  <line x1="40" y1="120" x2="920" y2="120" stroke="#475569" stroke-width="3"/>
+  <!-- Pallet Racks -->
+  <g transform="translate(80, 160)">
+    <rect x="0" y="0" width="240" height="300" rx="12" fill="#0b1120" stroke="#3b82f6" stroke-width="2"/>
+    <line x1="0" y1="100" x2="240" y2="100" stroke="#3b82f6" stroke-width="3"/>
+    <line x1="0" y1="200" x2="240" y2="200" stroke="#3b82f6" stroke-width="3"/>
+    <rect x="20" y="28" width="90" height="68" rx="6" fill="#b45309"/>
+    <rect x="126" y="28" width="90" height="68" rx="6" fill="#d97706"/>
+    <rect x="20" y="128" width="90" height="68" rx="6" fill="#2563eb"/>
+    <rect x="126" y="128" width="90" height="68" rx="6" fill="#1d4ed8"/>
+    <rect x="20" y="228" width="200" height="64" rx="6" fill="#047857"/>
+    <text x="120" y="265" text-anchor="middle" fill="#ecfdf5" font-family="monospace" font-size="14" font-weight="700">BAY A1 • SWITCHGEAR</text>
+  </g>
+  <g transform="translate(360, 160)">
+    <rect x="0" y="0" width="240" height="300" rx="12" fill="#0b1120" stroke="#3b82f6" stroke-width="2"/>
+    <line x1="0" y1="100" x2="240" y2="100" stroke="#3b82f6" stroke-width="3"/>
+    <line x1="0" y1="200" x2="240" y2="200" stroke="#3b82f6" stroke-width="3"/>
+    <rect x="20" y="28" width="200" height="68" rx="6" fill="#1e40af"/>
+    <rect x="20" y="128" width="90" height="68" rx="6" fill="#b45309"/>
+    <rect x="126" y="128" width="90" height="68" rx="6" fill="#b45309"/>
+    <rect x="20" y="228" width="200" height="64" rx="6" fill="#334155"/>
+    <text x="120" y="265" text-anchor="middle" fill="#e2e8f0" font-family="monospace" font-size="14" font-weight="700">BAY B2 • HIGH-BAY LED</text>
+  </g>
+  <g transform="translate(640, 160)">
+    <rect x="0" y="0" width="240" height="300" rx="12" fill="#0b1120" stroke="#f59e0b" stroke-width="2"/>
+    <text x="120" y="55" text-anchor="middle" fill="#fbbf24" font-family="sans-serif" font-size="16" font-weight="900">CENTRAL FULFILLMENT</text>
+    <text x="120" y="84" text-anchor="middle" fill="#cbd5e1" font-family="sans-serif" font-size="13">Sanathnagar Industrial Estate</text>
+    <rect x="24" y="112" width="192" height="52" rx="8" fill="#1e293b"/>
+    <text x="120" y="143" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="14" font-weight="700">ISO 9001:2015 CERTIFIED</text>
+    <rect x="24" y="180" width="192" height="52" rx="8" fill="#1e293b"/>
+    <text x="120" y="211" text-anchor="middle" fill="#4ade80" font-family="monospace" font-size="14" font-weight="700">GSTIN: 36AABCA1234D1Z5</text>
+    <rect x="24" y="246" width="192" height="38" rx="8" fill="#2563eb"/>
+    <text x="120" y="270" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="13" font-weight="800">24-HR PALLET DISPATCH</text>
+  </g>
+</svg>

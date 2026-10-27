@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <pattern id="bpgrid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#1e3a8a" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" rx="28" fill="#0b1120"/>
+  <rect width="800" height="600" rx="28" fill="url(#bpgrid)"/>
+  <rect x="24" y="24" width="752" height="552" rx="20" fill="none" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="2"/>
+  <text x="52" y="66" fill="#38bdf8" font-family="monospace" font-size="14" font-weight="700">TECHNICAL SPECIFICATION &amp; QUALITY COMPLIANCE SHEET</text>
+  <text x="52" y="96" fill="#ffffff" font-family="Inter, sans-serif" font-size="22" font-weight="900">63A TPN C-Curve Industrial MCB (10kA Breaking)</text>
+  <g transform="translate(65, 130) scale(0.78)">
+    
+<rect x="30" y="10" width="300" height="340" rx="22" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
+<rect x="48" y="32" width="264" height="44" rx="8" fill="#0f172a"/>
+<text x="180" y="59" text-anchor="middle" fill="#38bdf8" font-family="monospace" font-size="15" font-weight="800">ACME PRO-SHIELD 63A TPN</text>
+<!-- 4 Poles -->
+<rect x="52" y="112" width="54" height="120" rx="8" fill="#1e293b" stroke="#475569" stroke-width="2"/>
+<rect x="118" y="112" width="54" height="120" rx="8" fill="#1e293b" stroke="#475569" stroke-width="2"/>
+<rect x="184" y="112" width="54" height="120" rx="8" fill="#1e293b" stroke="#475569" stroke-width="2"/>
+<rect x="250" y="112" width="54" height="120" rx="8" fill="#1e293b" stroke="#475569" stroke-width="2"/>
+<!-- Blue/Red Switches & Tie Bar -->
+<rect x="60" y="140" width="38" height="48" rx="5" fill="#2563eb"/>
+<rect x="126" y="140" width="38" height="48" rx="5" fill="#2563eb"/>
+<rect x="192" y="140" width="38" height="48" rx="5" fill="#2563eb"/>
+<rect x="258" y="140" width="38" height="48" rx="5" fill="#ef4444"/>
+<rect x="56" y="156" width="246" height="14" rx="4" fill="#f8fafc" stroke="#0f172a" stroke-width="2"/>
+<!-- Terminal Screws -->
+<circle cx="79" cy="272" r="14" fill="#cbd5e1" stroke="#475569" stroke-width="3"/>
+<circle cx="145" cy="272" r="14" fill="#cbd5e1" stroke="#475569" stroke-width="3"/>
+<circle cx="211" cy="272" r="14" fill="#cbd5e1" stroke="#475569" stroke-width="3"/>
+<circle cx="277" cy="272" r="14" fill="#cbd5e1" stroke="#475569" stroke-width="3"/>
+<text x="180" y="324" text-anchor="middle" fill="#0f172a" font-family="monospace" font-size="14" font-weight="800">10kA C-CURVE • 415V AC • ISI</text>
+
+  </g>
+  <!-- Spec Table Card -->
+  <rect x="395" y="135" width="350" height="330" rx="16" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <text x="420" y="172" fill="#fbbf24" font-family="monospace" font-size="13" font-weight="700">QA &amp; METROLOGY PARAMETERS</text>
+  <line x1="420" y1="186" x2="720" y2="186" stroke="#334155" stroke-width="1.5"/>
+  <text x="420" y="218" fill="#94a3b8" font-family="sans-serif" font-size="13">Catalogue SKU Code</text>
+  <text x="720" y="218" text-anchor="end" fill="#ffffff" font-family="monospace" font-size="13" font-weight="700">ACME-MCB-63A-TPN</text>
+  <text x="420" y="256" fill="#94a3b8" font-family="sans-serif" font-size="13">HSN Classification</text>
+  <text x="720" y="256" text-anchor="end" fill="#38bdf8" font-family="monospace" font-size="13" font-weight="700">HSN 8536</text>
+  <text x="420" y="294" fill="#94a3b8" font-family="sans-serif" font-size="13">Primary Spec</text>
+  <text x="720" y="294" text-anchor="end" fill="#ffffff" font-family="monospace" font-size="13" font-weight="700">63A 415V AC 50Hz</text>
+  <text x="420" y="332" fill="#94a3b8" font-family="sans-serif" font-size="13">Compliance Grade</text>
+  <text x="720" y="332" text-anchor="end" fill="#4ade80" font-family="monospace" font-size="13" font-weight="700">IS/IEC 60898-1 10kA</text>
+  <text x="420" y="370" fill="#94a3b8" font-family="sans-serif" font-size="13">Batch Testing</text>
+  <text x="720" y="370" text-anchor="end" fill="#ffffff" font-family="monospace" font-size="13" font-weight="700">Bi-Connect DIN Rail</text>
+  <rect x="420" y="398" width="300" height="44" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-opacity="0.4"/>
+  <text x="570" y="425" text-anchor="middle" fill="#e2e8f0" font-family="monospace" font-size="12" font-weight="700">✓ FACTORY TEST CERTIFICATE INCLUDED</text>
+  <rect x="52" y="508" width="693" height="44" rx="10" fill="#1e293b"/>
+  <text x="72" y="535" fill="#93c5fd" font-family="monospace" font-size="13" font-weight="700">BLUEPRINT VIEW 02 • DIMENSIONAL &amp; COMPLIANCE MATRIX</text>
+</svg>

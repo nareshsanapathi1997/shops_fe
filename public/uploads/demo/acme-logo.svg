@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="55%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="240" rx="44" fill="url(#bg)"/>
+  <rect x="12" y="12" width="216" height="216" rx="36" fill="none" stroke="#60a5fa" stroke-opacity="0.35" stroke-width="2"/>
+  <circle cx="120" cy="102" r="52" fill="#0b1120" stroke="url(#gold)" stroke-width="4"/>
+  <path d="M128 60 L96 106 H122 L112 144 L146 96 H120 Z" fill="url(#gold)"/>
+  <text x="120" y="186" text-anchor="middle" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="900" letter-spacing="3">ACME</text>
+  <text x="120" y="208" text-anchor="middle" fill="#93c5fd" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="2.5">INDUSTRIAL B2B</text>
+</svg>

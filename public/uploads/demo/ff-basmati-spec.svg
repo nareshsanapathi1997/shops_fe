@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <pattern id="bpgrid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#1e3a8a" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" rx="28" fill="#0b1120"/>
+  <rect width="800" height="600" rx="28" fill="url(#bpgrid)"/>
+  <rect x="24" y="24" width="752" height="552" rx="20" fill="none" stroke="#38bdf8" stroke-opacity="0.5" stroke-width="2"/>
+  <text x="52" y="66" fill="#38bdf8" font-family="monospace" font-size="14" font-weight="700">TECHNICAL SPECIFICATION &amp; QUALITY COMPLIANCE SHEET</text>
+  <text x="52" y="96" fill="#ffffff" font-family="Inter, sans-serif" font-size="22" font-weight="900">Royal Crown Aged 1121 Steam Basmati Rice (25kg BOPP Master Bag)</text>
+  <g transform="translate(65, 130) scale(0.78)">
+    
+<rect x="55" y="15" width="250" height="330" rx="28" fill="#d97706" stroke="#78350f" stroke-width="5"/>
+<rect x="75" y="42" width="210" height="275" rx="18" fill="#fffbeb" stroke="#f59e0b" stroke-width="3"/>
+<rect x="95" y="64" width="170" height="34" rx="8" fill="#065f46"/>
+<text x="180" y="86" text-anchor="middle" fill="#fde68a" font-family="serif" font-size="15" font-weight="900">ROYAL CROWN EXPORT</text>
+<text x="180" y="132" text-anchor="middle" fill="#0f172a" font-family="serif" font-size="24" font-weight="900">1121 STEAM</text>
+<text x="180" y="158" text-anchor="middle" fill="#b45309" font-family="sans-serif" font-size="16" font-weight="800">AGED BASMATI RICE</text>
+<ellipse cx="180" cy="212" rx="68" ry="34" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+<text x="180" y="218" text-anchor="middle" fill="#78350f" font-family="monospace" font-size="15" font-weight="900">8.35mm GRAIN</text>
+<rect x="110" y="264" width="140" height="34" rx="8" fill="#0f172a"/>
+<text x="180" y="286" text-anchor="middle" fill="#ffffff" font-family="monospace" font-size="14" font-weight="800">NET WT: 25 KG</text>
+
+  </g>
+  <!-- Spec Table Card -->
+  <rect x="395" y="135" width="350" height="330" rx="16" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+  <text x="420" y="172" fill="#fbbf24" font-family="monospace" font-size="13" font-weight="700">QA &amp; METROLOGY PARAMETERS</text>
+  <line x1="420" y1="186" x2="720" y2="186" stroke="#334155" stroke-width="1.5"/>
+  <text x="420" y="218" fill="#94a3b8" font-family="sans-serif" font-size="13">Catalogue SKU Code</text>
+  <text x="720" y="218" text-anchor="end" fill="#ffffff" font-family="monospace" font-size="13" font-weight="700">FF-RICE-1121-25KG</text>
+  <text x="420" y="256" fill="#94a3b8" font-family="sans-serif" font-size="13">HSN Classification</text>
+  <text x="720" y="256" text-anchor="end" fill="#38bdf8" font-family="monospace" font-size="13" font-weight="700">HSN 1006</text>
+  <text x="420" y="294" fill="#94a3b8" font-family="sans-serif" font-size="13">Primary Spec</text>
+  <text x="720" y="294" text-anchor="end" fill="#ffffff" font-family="monospace" font-size="13" font-weight="700">8.35mm Avg Grain Length</text>
+  <text x="420" y="332" fill="#94a3b8" font-family="sans-serif" font-size="13">Compliance Grade</text>
+  <text x="720" y="332" text-anchor="end" fill="#4ade80" font-family="monospace" font-size="13" font-weight="700">18 Months Aged • &lt;12% Moisture</text>
+  <text x="420" y="370" fill="#94a3b8" font-family="sans-serif" font-size="13">Batch Testing</text>
+  <text x="720" y="370" text-anchor="end" fill="#ffffff" font-family="monospace" font-size="13" font-weight="700">Sortex Clean 100% Purity</text>
+  <rect x="420" y="398" width="300" height="44" rx="10" fill="#1e293b" stroke="#38bdf8" stroke-opacity="0.4"/>
+  <text x="570" y="425" text-anchor="middle" fill="#e2e8f0" font-family="monospace" font-size="12" font-weight="700">✓ FACTORY TEST CERTIFICATE INCLUDED</text>
+  <rect x="52" y="508" width="693" height="44" rx="10" fill="#1e293b"/>
+  <text x="72" y="535" fill="#93c5fd" font-family="monospace" font-size="13" font-weight="700">BLUEPRINT VIEW 02 • DIMENSIONAL &amp; COMPLIANCE MATRIX</text>
+</svg>

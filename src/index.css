@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #ffffff;
+  --surface: #f3f3f1;
+  --ink: #181817;
+  --muted: #666560;
+  --accent: #a1ffcb;
+  --accent-ink: #181817;
+  --field-1: #a1ffcb;
+  --field-1-ink: #181817;
+  --field-2: #181817;
+  --field-2-ink: #ffffff;
+  --step-small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
+  --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+  --step-lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+  --step-head: clamp(2rem, 1.3rem + 3.2vw, 4rem);
+}
+
+body {
+  font-family: "Archivo", "Hanken Grotesk", "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-feature-settings: "kern" 1, "liga" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display-platform {
+  font-family: "Archivo", system-ui, sans-serif;
+  letter-spacing: -0.025em;
+}
+
+.font-display-storefront {
+  font-family: "Hanken Grotesk", "Archivo", system-ui, sans-serif;
+  letter-spacing: -0.035em;
+}
+
+.font-app-workspace {
+  font-family: "IBM Plex Sans", "Archivo", system-ui, sans-serif;
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes tasteRevealUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tasteShutter {
+  from {
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.taste-enter {
+  animation: tasteRevealUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.taste-shutter {
+  animation: tasteShutter 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/*
+ * Form field & focus baseline. Tailwind v4 preflight removes input borders and
+ * backgrounds, which left fields invisible on white cards. These low-specificity
+ * defaults restore a visible edge; any utility class on the element still wins.
+ */
+@layer base {
+  :where(input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]):not([type="file"]), select, textarea) {
+    border: 1px solid var(--field-border);
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+  }
+
+  :where(input, select, textarea):focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 1px;
+    border-color: var(--ink);
+  }
+
+  :where(input, select, textarea):disabled {
+    background-color: var(--surface);
+    cursor: not-allowed;
+  }
+
+  :where(a, button, [role="button"], [role="tab"], summary):focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+    border-radius: 0.375rem;
+  }
+
+  ::placeholder {
+    color: #8a8984;
+    opacity: 1;
+  }
+}
+
+:root {
+  --field-border: #c9c8c2;
+  --focus-ring: #2563eb;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .taste-enter,
+  .taste-shutter {
+    animation: none;
+  }
+}
