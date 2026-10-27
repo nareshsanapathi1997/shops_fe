@@ -119,7 +119,7 @@ export function SettingsSection() {
                 <input
                   value={settingsForm.logo_url}
                   onChange={(e) => setSettingsForm({ ...settingsForm, logo_url: e.target.value })}
-                  placeholder="/uploads/demo/acme-logo.svg or https://..."
+                  placeholder="/uploads/demo/acme-logo.png or https://..."
                   className="w-full   rounded px-2.5 py-1.5 tnum text-[11px]"
                 />
                 <label className="inline-block px-3 py-1.5 rounded-lg bg-slate-900 text-white font-bold text-[11px] cursor-pointer">
@@ -155,7 +155,7 @@ export function SettingsSection() {
                 <input
                   value={settingsForm.banner_url}
                   onChange={(e) => setSettingsForm({ ...settingsForm, banner_url: e.target.value })}
-                  placeholder="/uploads/demo/acme-hero-banner.svg"
+                  placeholder="/uploads/demo/acme-hero-banner.jpg"
                   className="w-full   rounded px-2.5 py-1.5 tnum text-[11px]"
                 />
                 <label className="inline-block px-3 py-1.5 rounded-lg bg-blue-600 text-white font-bold text-[11px] cursor-pointer">
@@ -191,7 +191,7 @@ export function SettingsSection() {
                 <input
                   value={settingsForm.about_image_url}
                   onChange={(e) => setSettingsForm({ ...settingsForm, about_image_url: e.target.value })}
-                  placeholder="/uploads/demo/acme-warehouse.svg"
+                  placeholder="/uploads/demo/acme-warehouse.jpg"
                   className="w-full   rounded px-2.5 py-1.5 tnum text-[11px]"
                 />
                 <label className="inline-block px-3 py-1.5 rounded-lg bg-emerald-600 text-white font-bold text-[11px] cursor-pointer">

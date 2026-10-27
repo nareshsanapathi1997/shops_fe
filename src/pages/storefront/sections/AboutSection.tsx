@@ -33,7 +33,7 @@ export function AboutSection() {
             </div>
             <div className="lg:col-span-5">
               <img
-                src={resolveMediaUrl(shop.merchant_settings?.about_image_url || shop.banner_url || '/uploads/demo/acme-warehouse.svg')}
+                src={resolveMediaUrl(shop.merchant_settings?.about_image_url || shop.banner_url || '/uploads/demo/acme-warehouse.jpg')}
                 alt={`${shop.name} Fulfillment Hub`}
                 className="w-full h-56 object-cover rounded-2xl   "
               />

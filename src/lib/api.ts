@@ -28,7 +28,15 @@ export function resolveMediaUrl(url?: string | null): string {
   if (trimmed.startsWith('uploads/shops/')) {
     return `${BACKEND_ORIGIN}/${trimmed}`;
   }
-  return trimmed.startsWith('/') ? trimmed : `/${trimmed}`;
+  let normalized = trimmed.startsWith('/') ? trimmed : `/${trimmed}`;
+  if (normalized.startsWith('/uploads/demo/')) {
+    if (normalized.endsWith('-logo.svg')) {
+      normalized = normalized.replace(/\.svg$/i, '.png');
+    } else if (normalized.endsWith('.svg')) {
+      normalized = normalized.replace(/\.svg$/i, '.jpg');
+    }
+  }
+  return normalized;
 }
 
 function generateSecureToken(): string {

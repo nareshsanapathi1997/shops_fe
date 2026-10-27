@@ -26,6 +26,8 @@ interface HeroSimSku {
   name: string;
   hsn: string;
   unit: string;
+  packLabel: string;
+  imageUrl: string;
   moq: number;
   step: number;
   tiers: { min: number; max: number | null; rate: number }[];
@@ -37,6 +39,8 @@ const HERO_SIM_SKUS: HeroSimSku[] = [
     name: 'Acme ProGuard 32A SPN C-Curve MCB (10kA)',
     hsn: '853620',
     unit: 'pcs',
+    packLabel: 'DIN-Rail Breaker · Box of 10 Pcs',
+    imageUrl: '/uploads/demo/acme-mcb-primary.jpg',
     moq: 10,
     step: 10,
     tiers: [
@@ -50,6 +54,8 @@ const HERO_SIM_SKUS: HeroSimSku[] = [
     name: 'Acme CopperFlex 2.5 sq.mm FR PVC Coil (90m)',
     hsn: '854449',
     unit: 'coil',
+    packLabel: '90m Electrolytic Copper Coil',
+    imageUrl: '/uploads/demo/acme-cable-primary.jpg',
     moq: 5,
     step: 5,
     tiers: [
@@ -63,6 +69,8 @@ const HERO_SIM_SKUS: HeroSimSku[] = [
     name: 'Acme UltraBay 150W IP66 Industrial LED Highbay',
     hsn: '940542',
     unit: 'pcs',
+    packLabel: '150W Die-Cast UFO Luminaire',
+    imageUrl: '/uploads/demo/acme-led-primary.jpg',
     moq: 4,
     step: 4,
     tiers: [
@@ -352,15 +360,24 @@ export const PlatformBusinessPage: React.FC = () => {
                       setSimSkuIdx(idx);
                       setSimQty(item.tiers[1]?.min || item.moq);
                     }}
-                    className={`text-left p-3 cursor-pointer transition-colors ${
+                    className={`text-left p-2.5 flex items-center gap-3 cursor-pointer transition-colors ${
                       isSelected
                         ? 'bg-[#181817] text-white'
                         : 'bg-white text-[#181817] hover:bg-[#e8e7e3]'
                     }`}
                   >
-                    <div className="text-[13px] opacity-75 tnum">{item.sku}</div>
-                    <div className="text-[14px] font-semibold leading-snug mt-0.5 line-clamp-1">
-                      {item.name}
+                    <img
+                      src={resolveMediaUrl(item.imageUrl)}
+                      alt={item.name}
+                      width={56}
+                      height={56}
+                      className="w-12 h-12 object-cover shrink-0 bg-white"
+                    />
+                    <div className="min-w-0">
+                      <div className="text-[12px] opacity-75 tnum truncate">{item.sku}</div>
+                      <div className="text-[13px] font-semibold leading-snug mt-0.5 line-clamp-2">
+                        {item.name}
+                      </div>
                     </div>
                   </button>
                 );
@@ -484,25 +501,39 @@ export const PlatformBusinessPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {shops.map((shop) => {
               const domain = shop.canonical_domain || `${shop.slug}.platform-domain.com`;
-              const bannerUrl = resolveMediaUrl(shop.banner_url);
-              const logoUrl = resolveMediaUrl(shop.logo_url);
+              const isFresh = shop.slug === 'freshfoods';
+              const bannerUrl =
+                resolveMediaUrl(shop.banner_url) ||
+                (isFresh ? '/uploads/demo/freshfoods-hero-banner.jpg' : '/uploads/demo/acme-hero-banner.jpg');
+              const logoUrl =
+                resolveMediaUrl(shop.logo_url) ||
+                (isFresh ? '/uploads/demo/freshfoods-logo.png' : '/uploads/demo/acme-logo.png');
+              const sampleProducts = isFresh
+                ? [
+                    { label: '1121 Basmati 25kg Sack', img: '/uploads/demo/ff-basmati-primary.jpg' },
+                    { label: '15L Cold-Pressed Oil Tin', img: '/uploads/demo/ff-oil-primary.jpg' },
+                    { label: 'APMC Bulk Grain Lots', img: '/uploads/demo/cat-grains.jpg' },
+                  ]
+                : [
+                    { label: '32A C-Curve MCB (10kA)', img: '/uploads/demo/acme-mcb-primary.jpg' },
+                    { label: '90m CopperFlex Wire Coil', img: '/uploads/demo/acme-cable-primary.jpg' },
+                    { label: '150W IP66 UFO Highbay', img: '/uploads/demo/acme-led-primary.jpg' },
+                  ];
               return (
                 <div
                   key={shop.id}
                   data-ui="tenant-showcase-card"
                   className="bg-[#f3f3f1] flex flex-col justify-between overflow-hidden group"
                 >
-                  <div className="relative h-48 bg-[#181817] overflow-hidden">
-                    {bannerUrl ? (
-                      <img
-                        src={bannerUrl}
-                        alt={shop.name}
-                        width={800}
-                        height={360}
-                        loading="lazy"
-                        className="w-full h-full object-cover object-center opacity-85 transition-transform duration-500 ease-out group-hover:scale-105"
-                      />
-                    ) : null}
+                  <div className="relative h-52 bg-[#181817] overflow-hidden">
+                    <img
+                      src={bannerUrl}
+                      alt={shop.name}
+                      width={800}
+                      height={360}
+                      loading="lazy"
+                      className="w-full h-full object-cover object-center opacity-85 transition-transform duration-500 ease-out group-hover:scale-105"
+                    />
                     <div className="absolute inset-0 bg-[#181817]/45 p-6 flex flex-col justify-between text-white">
                       <div className="flex items-center justify-between gap-2">
                         <span className="px-2.5 py-1 bg-[#181817] text-[#a1ffcb] text-[13px] font-medium tnum">
@@ -514,20 +545,14 @@ export const PlatformBusinessPage: React.FC = () => {
                       </div>
 
                       <div className="flex items-center gap-3.5">
-                        {logoUrl ? (
-                          <img
-                            src={logoUrl}
-                            alt={shop.name}
-                            width={48}
-                            height={48}
-                            loading="lazy"
-                            className="w-12 h-12 object-cover bg-white p-1"
-                          />
-                        ) : (
-                          <div className="w-12 h-12 bg-[#a1ffcb] text-[#181817] flex items-center justify-center font-bold text-lg">
-                            {shop.name.slice(0, 2)}
-                          </div>
-                        )}
+                        <img
+                          src={logoUrl}
+                          alt={shop.name}
+                          width={56}
+                          height={56}
+                          loading="lazy"
+                          className="w-14 h-14 object-contain bg-white p-1 shrink-0"
+                        />
                         <div>
                           <h3 className="text-[20px] font-semibold text-white leading-tight">
                             {shop.name}
@@ -547,7 +572,25 @@ export const PlatformBusinessPage: React.FC = () => {
                           `Direct wholesale catalogue and tiered B2B ordering portal for ${shop.name}.`}
                       </p>
 
-                      <div className="mt-5 grid grid-cols-3 gap-3 bg-white p-4 tnum">
+                      <div className="mt-4 grid grid-cols-3 gap-2.5">
+                        {sampleProducts.map((sp) => (
+                          <div key={sp.label} className="bg-white p-2">
+                            <img
+                              src={sp.img}
+                              alt={sp.label}
+                              width={240}
+                              height={160}
+                              loading="lazy"
+                              className="w-full h-20 object-cover"
+                            />
+                            <div className="text-[12px] font-medium text-[#181817] mt-1.5 truncate">
+                              {sp.label}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="mt-4 grid grid-cols-3 gap-3 bg-white p-4 tnum">
                         <div>
                           <div className="text-[13px] text-[#666560]">GSTIN</div>
                           <div className="text-[14px] font-semibold text-[#181817] truncate mt-0.5">

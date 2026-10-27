@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useMemo, useRef } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
-import { AUTH_EXPIRED_EVENT, api, formatINR, extractApiError, generateIdempotencyKey, getActiveShopSlug, getCartSessionToken, setActiveShopSlug } from '../../lib/api';
+import { AUTH_EXPIRED_EVENT, api, formatINR, extractApiError, generateIdempotencyKey, getActiveShopSlug, getCartSessionToken, resolveMediaUrl, setActiveShopSlug } from '../../lib/api';
 import { payWithRazorpay } from '../../lib/razorpay';
 import type { RazorpayCheckoutParams } from '../../lib/razorpay';
 import { ProductVisual } from '../../components/ProductVisual';
@@ -42,6 +42,7 @@ export function useStorefrontState(forcedSlug?: string) {
   const [designPreset, setDesignPreset] = useState<'classic_smart' | 'classic' | 'smart'>('classic_smart');
   const [activeHeroSlideIdx, setActiveHeroSlideIdx] = useState<number>(0);
   const [activeProductImageIdx, setActiveProductImageIdx] = useState<number>(0);
+  const [cardImageIndices, setCardImageIndices] = useState<Record<number, number>>({});
 
   // Selected product for deep-dive & live tier quote calculator
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
@@ -624,6 +625,15 @@ export function useStorefrontState(forcedSlug?: string) {
     const stock = getAvailableStock(product);
     const maxSavings = getMaxSavingsPercent(product);
     const activeUnitRate = getResolvedTierUnitPrice(product, qty);
+    const gallery =
+      product.images && product.images.length > 0
+        ? product.images
+        : product.primary_image_url
+        ? [{ id: 0, url: product.primary_image_url, alt_text: product.name }]
+        : [];
+    const selectedGalleryIdx = cardImageIndices[product.id] ?? 0;
+    const activeCardImageUrl =
+      gallery[selectedGalleryIdx]?.url || product.primary_image_url || gallery[0]?.url;
 
     return (
       <div
@@ -635,6 +645,7 @@ export function useStorefrontState(forcedSlug?: string) {
             onClick={() => {
               setSelectedProduct(product);
               setSelectedVariantId(null);
+              setActiveProductImageIdx(selectedGalleryIdx);
               setQuoteQty(product.min_order_qty || 1);
               goToPage('product', product.slug);
             }}
@@ -643,21 +654,57 @@ export function useStorefrontState(forcedSlug?: string) {
             <ProductVisual
               sku={product.sku}
               name={product.name}
+              categoryName={product.category?.name}
               brand={product.brand}
               unit={product.unit}
               packSize={product.pack_size}
               hsnCode={product.hsn_code}
-              imageUrl={product.primary_image_url || product.images?.[0]?.url}
-              galleryCount={product.images?.length || (product.primary_image_url ? 1 : 0)}
+              imageUrl={activeCardImageUrl}
+              galleryCount={gallery.length || 1}
               primaryColor={primaryColor}
               accentColor={accentColor}
-              className="h-48 rounded-xl group-hover:scale-[1.01] transition-transform"
+              className="h-52 rounded-xl group-hover:scale-[1.01] transition-transform"
             />
           </div>
           {maxSavings > 0 && (
             <span className="absolute top-6 right-6 z-20 px-2.5 py-1 rounded-full bg-emerald-600 text-white text-[11px] font-extrabold ">
               Save up to {maxSavings}%
             </span>
+          )}
+          {gallery.length > 1 && (
+            <div className="mt-2 grid grid-cols-3 gap-1.5">
+              {gallery.slice(0, 3).map((img, gIdx) => {
+                const isSelectedImg = selectedGalleryIdx === gIdx;
+                const viewLabels = ['Studio Photo', 'Close-Up View', 'Wholesale Pack'];
+                return (
+                  <button
+                    key={img.id || gIdx}
+                    type="button"
+                    onClick={() =>
+                      setCardImageIndices((prev) => ({
+                        ...prev,
+                        [product.id]: gIdx,
+                      }))
+                    }
+                    className={`flex items-center gap-1.5 p-1 rounded-lg text-left transition cursor-pointer ${
+                      isSelectedImg
+                        ? 'bg-slate-900 text-white'
+                        : 'bg-white/80 hover:bg-white text-slate-700'
+                    }`}
+                  >
+                    <img
+                      src={resolveMediaUrl(img.url)}
+                      alt={img.alt_text || `${product.name} view ${gIdx + 1}`}
+                      loading="lazy"
+                      className="w-8 h-7 rounded object-cover shrink-0 bg-white"
+                    />
+                    <span className="text-[10px] font-bold truncate leading-tight">
+                      {viewLabels[gIdx] || `Photo ${gIdx + 1}`}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
           )}
         </div>
 

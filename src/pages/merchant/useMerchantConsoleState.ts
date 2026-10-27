@@ -59,10 +59,10 @@ export function useMerchantConsoleState() {
     tier1_price: 105,
     tier2_qty: 200,
     tier2_price: 92,
-    primary_image_url: '/uploads/demo/acme-mcb-primary.svg',
+    primary_image_url: '/uploads/demo/acme-mcb-primary.jpg',
   });
 
-  const [newCategory, setNewCategory] = useState({ name: '', description: '', image_url: '/uploads/demo/cat-switchgear.svg' });
+  const [newCategory, setNewCategory] = useState({ name: '', description: '', image_url: '/uploads/demo/cat-switchgear.jpg' });
   const [newTaxCat, setNewTaxCat] = useState({ name: '', hsn_code: '', gst_rate: 18 });
   const [newWarehouse, setNewWarehouse] = useState({ name: '', code: '', city: 'Hyderabad', state_code: 'TG' });
   const [newGroup, setNewGroup] = useState({ name: '', code: '', discount_percentage: 5 });
@@ -461,7 +461,7 @@ export function useMerchantConsoleState() {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['merchant-categories'] });
-      setNewCategory({ name: '', description: '', image_url: '/uploads/demo/cat-switchgear.svg' });
+      setNewCategory({ name: '', description: '', image_url: '/uploads/demo/cat-switchgear.jpg' });
       showToast('success', 'Category created.');
     },
     onError: (err: any) => showToast('error', extractApiError(err, 'Could not save category.')),

@@ -64,6 +64,7 @@ export function ProductDetailSection() {
                   <ProductVisual
                     sku={selectedProduct.sku}
                     name={selectedProduct.name}
+                    categoryName={selectedProduct.category?.name}
                     brand={selectedProduct.brand}
                     unit={selectedProduct.unit}
                     packSize={selectedProduct.pack_size}

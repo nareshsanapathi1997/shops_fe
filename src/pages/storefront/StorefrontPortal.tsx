@@ -154,17 +154,18 @@ export const StorefrontPortal: React.FC<StorefrontPortalProps> = ({ forcedSlug }
               <img
                 src={resolveMediaUrl(shop.logo_url)}
                 alt={shop.name}
-                className="w-12 h-12 rounded-2xl object-cover    group-hover:scale-105 transition-transform"
+                className="w-14 h-14 rounded-xl object-contain p-0.5 shrink-0 bg-white group-hover:scale-105 transition-transform"
               />
             ) : (
-              <div
-                style={{
-                  backgroundColor: primaryColor,
-                }}
-                className="w-12 h-12 rounded-2xl flex items-center justify-center text-white font-black text-xl  group-hover:scale-105 transition-transform"
-              >
-                {shop?.name ? shop.name.slice(0, 2).toUpperCase() : 'WS'}
-              </div>
+              <img
+                src={resolveMediaUrl(
+                  shop?.slug === 'freshfoods'
+                    ? '/uploads/demo/freshfoods-logo.png'
+                    : '/uploads/demo/acme-logo.png'
+                )}
+                alt={shop?.name || 'Wholesale Storefront'}
+                className="w-14 h-14 rounded-xl object-contain p-0.5 shrink-0 bg-white group-hover:scale-105 transition-transform"
+              />
             )}
             <div>
               <div className="flex items-center gap-2">
