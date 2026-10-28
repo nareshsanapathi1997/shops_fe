@@ -638,16 +638,17 @@ export function useStorefrontState(forcedSlug?: string) {
     return (
       <div
         key={product.id}
-        data-ui="product-card" className="group bg-[#f5f4f0] hover:bg-[#eceae3] transition-colors duration-200 flex flex-col overflow-hidden"
+        data-ui="product-card"
+        className="group bg-white hover:bg-[#fafaf8] transition-colors duration-200 flex flex-col overflow-hidden tnum"
       >
-        <div className="p-3 pb-0 relative">
+        <div className="p-3.5 pb-0 relative">
           <div
             onClick={() => {
               setSelectedProduct(product);
               setSelectedVariantId(null);
               setActiveProductImageIdx(selectedGalleryIdx);
               setQuoteQty(product.min_order_qty || 1);
-              goToPage('product', product.slug);
+              goToPage("product", product.slug);
             }}
             className="cursor-pointer"
           >
@@ -663,11 +664,11 @@ export function useStorefrontState(forcedSlug?: string) {
               galleryCount={gallery.length || 1}
               primaryColor={primaryColor}
               accentColor={accentColor}
-              className="h-52 rounded-xl group-hover:scale-[1.01] transition-transform"
+              className="h-52 group-hover:scale-[1.01] transition-transform"
             />
           </div>
           {maxSavings > 0 && (
-            <span className="absolute top-6 right-6 z-20 px-2.5 py-1 rounded-full bg-emerald-600 text-white text-[11px] font-extrabold ">
+            <span className="absolute top-6 right-6 z-20 px-2.5 py-1 bg-[#0d5c3a] text-white text-[11px] font-bold">
               Save up to {maxSavings}%
             </span>
           )}
@@ -675,7 +676,7 @@ export function useStorefrontState(forcedSlug?: string) {
             <div className="mt-2 grid grid-cols-3 gap-1.5">
               {gallery.slice(0, 3).map((img, gIdx) => {
                 const isSelectedImg = selectedGalleryIdx === gIdx;
-                const viewLabels = ['Studio Photo', 'Close-Up View', 'Wholesale Pack'];
+                const viewLabels = ["Studio Photo", "Close-Up View", "Wholesale Pack"];
                 return (
                   <button
                     key={img.id || gIdx}
@@ -686,19 +687,19 @@ export function useStorefrontState(forcedSlug?: string) {
                         [product.id]: gIdx,
                       }))
                     }
-                    className={`flex items-center gap-1.5 p-1 rounded-lg text-left transition cursor-pointer ${
+                    className={`flex items-center gap-1.5 p-1 text-left transition-colors cursor-pointer ${
                       isSelectedImg
-                        ? 'bg-slate-900 text-white'
-                        : 'bg-white/80 hover:bg-white text-slate-700'
+                        ? "bg-[#181817] text-[#a1ffcb]"
+                        : "bg-[#f3f3f1] hover:bg-[#e5e4e0] text-[#181817]"
                     }`}
                   >
                     <img
                       src={resolveMediaUrl(img.url)}
                       alt={img.alt_text || `${product.name} view ${gIdx + 1}`}
                       loading="lazy"
-                      className="w-8 h-7 rounded object-cover shrink-0 bg-white"
+                      className="w-8 h-7 object-cover shrink-0 bg-white"
                     />
-                    <span className="text-[10px] font-bold truncate leading-tight">
+                    <span className="text-[10px] font-semibold truncate leading-tight">
                       {viewLabels[gIdx] || `Photo ${gIdx + 1}`}
                     </span>
                   </button>
@@ -710,22 +711,22 @@ export function useStorefrontState(forcedSlug?: string) {
 
         <div className="p-5 flex-1 flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between gap-2 text-xs text-slate-500 mb-1.5">
-              <span className="font-semibold text-slate-600">
-                {product.category?.name || 'Wholesale Supply'}
+            <div className="flex items-center justify-between gap-2 text-xs text-[#575652] mb-1.5">
+              <span className="font-semibold text-[#575652]">
+                {product.category?.name || "Wholesale Supply"}
               </span>
               {stock === null ? (
-                <span className="inline-flex items-center gap-1 font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-full">
+                <span className="inline-flex items-center gap-1 font-semibold text-[#575652] bg-[#f3f3f1] px-2 py-0.5">
                   Stock on request
                 </span>
               ) : (
                 <span
-                  className={`inline-flex items-center gap-1 font-semibold px-2 py-0.5 rounded-full ${
-                    stock > 0 ? 'text-emerald-700 bg-emerald-50' : 'text-rose-700 bg-rose-50'
+                  className={`inline-flex items-center gap-1.5 font-semibold px-2 py-0.5 ${
+                    stock > 0 ? "text-[#0d5c3a] bg-[#e9f7ef]" : "text-rose-800 bg-rose-50"
                   }`}
                 >
-                  <span className={`w-1.5 h-1.5 rounded-full ${stock > 0 ? 'bg-emerald-500' : 'bg-rose-500'}`} />
-                  {stock > 0 ? `${stock} ${product.unit} Ready` : 'Out of stock'}
+                  <span className={`w-1.5 h-1.5 ${stock > 0 ? "bg-[#0d5c3a]" : "bg-rose-600"}`} />
+                  {stock > 0 ? `${stock} ${product.unit} Ready` : "Out of stock"}
                 </span>
               )}
             </div>
@@ -735,35 +736,35 @@ export function useStorefrontState(forcedSlug?: string) {
                 setSelectedProduct(product);
                 setSelectedVariantId(null);
                 setQuoteQty(product.min_order_qty || 1);
-                goToPage('product', product.slug);
+                goToPage("product", product.slug);
               }}
-              className="text-base font-bold text-slate-900 group-hover:text-blue-700 cursor-pointer leading-snug"
+              className="font-display-platform text-base font-bold text-[#181817] group-hover:text-[#0d5c3a] cursor-pointer leading-snug"
             >
               {product.name}
             </h3>
 
-            <p className="text-xs text-slate-600 mt-1.5 line-clamp-2 leading-relaxed">
+            <p className="text-xs text-[#575652] mt-1.5 line-clamp-2 leading-relaxed">
               {product.short_description}
             </p>
 
             {/* Price Header */}
-            <div className="mt-4 pt-3   flex items-baseline justify-between">
+            <div className="mt-4 pt-3 flex items-baseline justify-between">
               <div>
-                <div className="text-[11px] tracking-tight font-semibold text-slate-400">
+                <div className="text-[11px] font-semibold text-[#666560]">
                   Active Wholesale Rate
                 </div>
                 <div className="flex items-baseline gap-1.5 mt-0.5">
-                  <span className="text-2xl font-extrabold text-slate-900">
+                  <span className="font-display-platform text-2xl font-bold text-[#181817]">
                     {formatINR(activeUnitRate)}
                   </span>
-                  <span className="text-xs text-slate-500 font-medium">/ {product.unit}</span>
+                  <span className="text-xs text-[#575652] font-medium">/ {product.unit}</span>
                 </div>
               </div>
               <div className="text-right">
-                <div className="text-[11px] text-slate-400 line-through">
+                <div className="text-[11px] text-[#8c8b85] line-through">
                   MRP {formatINR(product.mrp)}
                 </div>
-                <div className="text-[11px] font-bold text-blue-700">
+                <div className="text-[11px] font-bold text-[#0d5c3a]">
                   +{product.tax_category?.gst_rate ?? 18}% GST
                 </div>
               </div>
@@ -771,8 +772,8 @@ export function useStorefrontState(forcedSlug?: string) {
 
             {/* Volume Tier Pricing Table */}
             {product.price_tiers && product.price_tiers.length > 0 && (
-              <div className="mt-3 bg-slate-50 rounded-xl p-2.5  ">
-                <div className="flex items-center justify-between text-[10px] font-bold tracking-tight text-slate-500 mb-1.5 px-1">
+              <div className="mt-3 bg-[#f3f3f1] p-2.5">
+                <div className="flex items-center justify-between text-[10px] font-semibold text-[#575652] mb-1.5 px-1">
                   <span>Quantity Slab</span>
                   <span>Net Rate / {product.unit}</span>
                 </div>
@@ -790,21 +791,21 @@ export function useStorefrontState(forcedSlug?: string) {
                             [product.id]: tier.min_qty,
                           }))
                         }
-                        className={`text-left p-2 rounded-lg  transition cursor-pointer ${
+                        className={`text-left p-2 transition-colors cursor-pointer ${
                           isCurrentSlab
-                            ? 'bg-blue-600 text-white  '
-                            : 'bg-white text-slate-800  '
+                            ? "bg-[#181817] text-white"
+                            : "bg-white text-[#181817] hover:bg-[#e8e7e3]"
                         }`}
                       >
                         <div
-                          className={`text-[10px] font-bold ${
-                            isCurrentSlab ? 'text-blue-100' : 'text-slate-500'
+                          className={`text-[10px] font-semibold ${
+                            isCurrentSlab ? "text-[#a1ffcb]" : "text-[#575652]"
                           }`}
                         >
                           {tier.min_qty}
-                          {tier.max_qty ? `–${tier.max_qty}` : '+'} {product.unit}
+                          {tier.max_qty ? `–${tier.max_qty}` : "+"} {product.unit}
                         </div>
-                        <div className="text-xs font-extrabold mt-0.5">
+                        <div className="text-xs font-bold mt-0.5">
                           {formatINR(tier.unit_price)}
                         </div>
                       </button>
@@ -815,33 +816,33 @@ export function useStorefrontState(forcedSlug?: string) {
             )}
 
             <div className="mt-3 flex flex-wrap gap-1.5 text-[11px]">
-              <span className="px-2 py-0.5 rounded-md bg-amber-50 text-amber-800   font-semibold">
+              <span className="px-2 py-0.5 bg-[#a1ffcb] text-[#181817] font-semibold">
                 MOQ: {product.min_order_qty} {product.unit}
               </span>
-              <span className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-medium">
+              <span className="px-2 py-0.5 bg-[#f3f3f1] text-[#575652] font-medium">
                 Step: {product.order_qty_step} {product.unit}
               </span>
-              <span className="px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-medium">
+              <span className="px-2 py-0.5 bg-[#f3f3f1] text-[#575652] font-medium">
                 Master Pack: {product.pack_size}
               </span>
             </div>
           </div>
 
-          <div className="mt-4 pt-3   space-y-2.5">
-            <div className="flex items-center justify-between px-3 py-1.5 rounded-lg bg-slate-900 text-white text-[11px]">
-              <span className="text-slate-300 font-medium">
+          <div className="mt-4 pt-3 space-y-2.5">
+            <div className="flex items-center justify-between px-3 py-2 bg-[#181817] text-white text-[11px]">
+              <span className="text-[#d4d3ce] font-medium">
                 Smart Lot ({qty} {product.unit}): <strong className="text-white">{formatINR(qty * activeUnitRate)}</strong>
               </span>
               {Number(product.base_price) > activeUnitRate ? (
-                <span className="text-emerald-400 font-extrabold">
+                <span className="text-[#a1ffcb] font-bold">
                   Save {formatINR(qty * (Number(product.base_price) - activeUnitRate))}
                 </span>
               ) : (
-                <span className="text-amber-300 font-semibold">Select higher slab to save</span>
+                <span className="text-[#a1ffcb] font-semibold">Select higher slab to save</span>
               )}
             </div>
             <div className="flex items-center gap-2">
-              <div className="flex items-center border border-slate-300 rounded-xl bg-slate-50 overflow-hidden">
+              <div className="flex items-center bg-[#f3f3f1] overflow-hidden">
                 <button
                   type="button"
                   onClick={() =>
@@ -854,7 +855,7 @@ export function useStorefrontState(forcedSlug?: string) {
                     }))
                   }
                   aria-label={`Decrease quantity of ${product.name}`}
-                  className="px-2.5 py-2 text-slate-700 hover:bg-slate-200 font-bold text-xs cursor-pointer"
+                  className="px-2.5 py-2.5 text-[#181817] hover:bg-[#e5e4e0] font-bold text-xs cursor-pointer"
                 >
                   −
                 </button>
@@ -869,7 +870,7 @@ export function useStorefrontState(forcedSlug?: string) {
                       [product.id]: Number(e.target.value),
                     }))
                   }
-                  className="w-16 text-center bg-white py-2 text-xs font-bold text-slate-900 border-0 focus-visible:outline-2 focus-visible:outline-blue-600"
+                  className="w-16 text-center bg-white py-2 text-xs font-bold text-[#181817] border-0 focus:outline-none"
                   aria-label={`Quantity for ${product.name}`}
                 />
                 <button
@@ -882,7 +883,7 @@ export function useStorefrontState(forcedSlug?: string) {
                     }))
                   }
                   aria-label={`Increase quantity of ${product.name}`}
-                  className="px-2.5 py-2 text-slate-700 hover:bg-slate-200 font-bold text-xs cursor-pointer"
+                  className="px-2.5 py-2.5 text-[#181817] hover:bg-[#e5e4e0] font-bold text-xs cursor-pointer"
                 >
                   +
                 </button>
@@ -891,8 +892,7 @@ export function useStorefrontState(forcedSlug?: string) {
               <button
                 type="button"
                 onClick={() => handleAddToCart(product, qty)}
-                style={{ backgroundColor: accentColor }}
-                className="flex-1 text-white text-xs font-bold py-2.5 px-3 rounded-xl hover:opacity-95 transition  cursor-pointer"
+                className="flex-1 bg-[#181817] text-[#a1ffcb] hover:bg-[#2a2a28] text-xs font-semibold py-2.5 px-3 transition-colors cursor-pointer"
               >
                 Add to Wholesale Cart
               </button>
@@ -904,9 +904,9 @@ export function useStorefrontState(forcedSlug?: string) {
                 setSelectedProduct(product);
                 setSelectedVariantId(null);
                 setQuoteQty(qty);
-                goToPage('product', product.slug);
+                goToPage("product", product.slug);
               }}
-              className="w-full py-1.5 text-[11px] font-semibold text-slate-600 hover:text-slate-900 bg-slate-50 hover:bg-slate-100 rounded-lg   transition cursor-pointer"
+              className="w-full py-2 text-[11px] font-semibold text-[#575652] hover:text-[#181817] bg-[#f3f3f1] hover:bg-[#e5e4e0] transition-colors cursor-pointer"
             >
               Inspect Technical Specs, Variants & GST Split →
             </button>
@@ -915,7 +915,6 @@ export function useStorefrontState(forcedSlug?: string) {
       </div>
     );
   };
-
 
   return {
     shopSlug,

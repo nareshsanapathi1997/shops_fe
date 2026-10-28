@@ -25,6 +25,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.font-sans-platform {
+  font-family: "Hanken Grotesk", "Archivo", system-ui, sans-serif;
+}
+
 .font-display-platform {
   font-family: "Archivo", system-ui, sans-serif;
   letter-spacing: -0.025em;

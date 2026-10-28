@@ -19,6 +19,7 @@ import {
   resolveMediaUrl,
   setActiveShopSlug,
 } from '../../lib/api';
+import { useDocumentTitle } from '../../lib/useDocumentTitle';
 import type { DirectoryShop, Plan } from '../../types/api';
 
 interface HeroSimSku {
@@ -81,7 +82,49 @@ const HERO_SIM_SKUS: HeroSimSku[] = [
   },
 ];
 
+const DEFAULT_DIRECTORY_SHOPS: DirectoryShop[] = [
+  {
+    id: 1,
+    name: 'Acme Industrial & Electrical Supplies',
+    slug: 'acme',
+    legal_name: 'Acme Industrial Supplies Pvt. Ltd.',
+    gstin: '36AABCA1234F1Z5',
+    city: 'Hyderabad',
+    state_code: 'TG',
+    min_order_value: 5000,
+    products_count: 3,
+    primary_color: '#181817',
+    accent_color: '#0d5c3a',
+    logo_url: '/uploads/demo/acme-logo.png',
+    banner_url: '/uploads/demo/acme-hero-banner.jpg',
+    hero_title: 'Industrial Switchgear, FRLS Cables & High-Bay LEDs at Factory-Direct Slab Rates',
+    hero_subtitle:
+      'ISO-9001 certified electrical & industrial distributor in Hyderabad. Tiered carton pricing, verified retailer credit lines, and 100% GST ITC invoices.',
+    canonical_domain: 'acme.platform-domain.com',
+  },
+  {
+    id: 2,
+    name: 'FreshFoods Agro & HoReCa Wholesale',
+    slug: 'freshfoods',
+    legal_name: 'FreshFoods Agro Commodities LLP',
+    gstin: '27AABCF9876D1Z9',
+    city: 'Navi Mumbai',
+    state_code: 'MH',
+    min_order_value: 3000,
+    products_count: 2,
+    primary_color: '#181817',
+    accent_color: '#0d5c3a',
+    logo_url: '/uploads/demo/freshfoods-logo.png',
+    banner_url: '/uploads/demo/freshfoods-hero-banner.jpg',
+    hero_title: 'Export-Grade Staples, Cold-Pressed Oils & Spices for Supermarkets & HoReCa',
+    hero_subtitle:
+      'Direct APMC Vashi bulk commodity supplier for supermarkets, hotels, and catering contractors across Maharashtra & Western India.',
+    canonical_domain: 'freshfoods.platform-domain.com',
+  },
+];
+
 export const PlatformBusinessPage: React.FC = () => {
+  useDocumentTitle('BharatWholesale Cloud — Multi-Tenant B2B Commerce SaaS Platform');
   const navigate = useNavigate();
   const queryClient = useQueryClient();
 
@@ -128,7 +171,10 @@ export const PlatformBusinessPage: React.FC = () => {
     },
   });
 
-  const shops: DirectoryShop[] = directoryQuery.data?.shops || [];
+  const shops: DirectoryShop[] =
+    directoryQuery.data?.shops && directoryQuery.data.shops.length > 0
+      ? directoryQuery.data.shops
+      : DEFAULT_DIRECTORY_SHOPS;
   const platformSettings = directoryQuery.data?.platform_settings || {};
   const plans: Plan[] =
     directoryQuery.data?.plans && directoryQuery.data.plans.length > 0
